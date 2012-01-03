@@ -10,26 +10,33 @@ import javax.swing.JTextArea;
 
 public class MainFrame {
 
+	private final JTextArea textArea = new JTextArea(); 
+	private final JComboBox comboBox = new JComboBox(new String[]{"USD/TRY", "EUR/TRY", "GBP/TRY"});
+
+
+	
 	public MainFrame()
 	{
-		// init gui elements
+		//build gui
 		JFrame f = new JFrame("Currency Converter");
 		JPanel p = new JPanel(new BorderLayout());
-		final JComboBox l = new JComboBox(new String[]{"USD/TRY", "EUR/TRY", "GBP/TRY"});
-		final JTextArea b = new JTextArea(); 
-		b.setWrapStyleWord(true);
-		b.setLineWrap(true);
+		textArea.setName("textarea");
+		textArea.setWrapStyleWord(true);
+		textArea.setLineWrap(true);
 		
 		// place them and start up the GUI
-		p.add(l, BorderLayout.NORTH);
-		p.add(b, BorderLayout.CENTER);
+		p.add(comboBox, BorderLayout.NORTH);
+		p.add(textArea, BorderLayout.CENTER);
 		f.setPreferredSize(new Dimension(300, 300));
 		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		f.pack();
 		f.add(p);
-		l.setSelectedIndex(0);
+		comboBox.setSelectedIndex(0);
 		f.setVisible(true); 
-	
 	}
+	
+	public JTextArea getTextArea(){	return textArea;}
+	public JComboBox comboBox(){return comboBox;}
+
 	
 }

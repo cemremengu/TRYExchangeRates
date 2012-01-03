@@ -7,6 +7,6 @@ public class Main {
 		{
 			MainFrame f = new MainFrame();
 			TCMB t = new TCMB("http://www.tcmb.gov.tr/kurlar/today.html");
-			t.parse();
+			f.getTextArea().setText("Cemre");
 		}
 }
