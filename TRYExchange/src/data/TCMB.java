@@ -6,7 +6,7 @@ import java.net.URL;
 import java.util.HashMap;
 import java.util.StringTokenizer;
 
-public class TCMB {
+public class TCMB implements IExchangeSource {
 
 	private String url;
 	private HashMap<String, String> buy;
@@ -20,7 +20,7 @@ public class TCMB {
 
 	}
 	
-	private void parse() 
+	public void update() 
 	{
 		try 
 		{
@@ -100,7 +100,13 @@ public class TCMB {
           }
 	}
 	
-	// reparse to update the data structures 
-	public void update() { parse(); }
-
+	
+	// this is called by the GUI when the user chooses a value from the
+	// combo box
+	public void updateView(String choice)
+	{
+		// query the data strctures and set the view
+		
+		
+	}
 }

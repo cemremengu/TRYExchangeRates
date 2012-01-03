@@ -2,6 +2,8 @@ package view;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
@@ -24,6 +26,15 @@ public class MainFrame {
 		textArea.setWrapStyleWord(true);
 		textArea.setLineWrap(true);
 		
+		comboBox.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent e)
+			{
+				String exchange = (String) comboBox.getSelectedItem();	
+				
+			}
+		});
+		
 		// place them and start up the GUI
 		p.add(comboBox, BorderLayout.NORTH);
 		p.add(textArea, BorderLayout.CENTER);
@@ -34,9 +45,15 @@ public class MainFrame {
 		comboBox.setSelectedIndex(0);
 		f.setVisible(true); 
 	}
+//	
+//	public JTextArea getTextArea(){	return textArea;}
+//	public JComboBox comboBox(){return comboBox;}
 	
-	public JTextArea getTextArea(){	return textArea;}
-	public JComboBox comboBox(){return comboBox;}
+	public void setTextArea(String text)
+	{
+		textArea.setText(text);
+	}
+	
 
 	
 }
