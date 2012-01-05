@@ -19,13 +19,13 @@ public class TCMB implements IExchangeSource {
 	public TCMB(String url, String name)
 	{
 		this.url = url;
+		this.name = name;
 		buy = new HashMap<String,String>();
 		sell = new HashMap<String,String>();
-		this.name = name;
 
 	}
 	
-	public void update() 
+	public void parse() 
 	{
 		try 
 		{
@@ -104,8 +104,7 @@ public class TCMB implements IExchangeSource {
 	}
 	
 	
-	// this is called by the GUI when the user chooses a value from the
-	// combo box
+	// this is called by the GUI when the user chooses a value from the combo box
 	public void getData(String exchange, JTextArea ta)
 	{
 		String result;
