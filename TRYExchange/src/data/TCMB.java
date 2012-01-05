@@ -3,8 +3,11 @@ package data;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.URL;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.StringTokenizer;
+
+import view.MainFrame;
 
 public class TCMB implements IExchangeSource {
 
@@ -12,11 +15,14 @@ public class TCMB implements IExchangeSource {
 	private HashMap<String, String> buy;
 	private HashMap<String, String> sell;
 	
+	private MainFrame f;
+	
 	public TCMB(String url)
 	{
 		this.url = url;
 		buy = new HashMap<String,String>();
 		sell = new HashMap<String,String>();
+		this.f = null;
 
 	}
 	
@@ -103,10 +109,29 @@ public class TCMB implements IExchangeSource {
 	
 	// this is called by the GUI when the user chooses a value from the
 	// combo box
-	public void updateView(String choice)
+	public void getData(String exchange)
 	{
-		// query the data strctures and set the view
+		String result;
+
+		if(exchange.equals("EUR/TRY"))
+		{
+			result = "BUY : " + buy.get("EUR/TRY") + "\n" + "SELL : " + sell.get("EUR/TRY");
+		}
+		else if(exchange.equals("GBP/TRY"))
+		{
+			result = "BUY : " + buy.get("GBP/TRY") + "\n" + "SELL : " + sell.get("GBP/TRY");
+		}
+		else
+		{
+			result = "BUY : " + buy.get("USD/TRY") + "\n" + "SELL : " + sell.get("USD/TRY");
+		}
 		
+		f.setTextArea(result);
 		
+	}
+	
+	public void setView(MainFrame f)
+	{
+		this.f = f;
 	}
 }
