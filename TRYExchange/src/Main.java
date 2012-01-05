@@ -7,7 +7,7 @@ public class Main
 
 		public static void main(String[] args)
 		{
-			IExchangeSource s  = new TCMB("http://www.tcmb.gov.tr/kurlar/today.html");
+			IExchangeSource s  = new TCMB("http://www.tcmb.gov.tr/kurlar/today.html", "TCMB");
 			MainFrame.main(s) ; 
 				
 			

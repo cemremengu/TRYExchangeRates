@@ -3,26 +3,25 @@ package data;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.URL;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.StringTokenizer;
-
 import javax.swing.JTextArea;
 
-import view.MainFrame;
 
 public class TCMB implements IExchangeSource {
 
 	private String url;
 	private HashMap<String, String> buy;
 	private HashMap<String, String> sell;
+	private String name;
 	
 	
-	public TCMB(String url)
+	public TCMB(String url, String name)
 	{
 		this.url = url;
 		buy = new HashMap<String,String>();
 		sell = new HashMap<String,String>();
+		this.name = name;
 
 	}
 	
@@ -50,8 +49,6 @@ public class TCMB implements IExchangeSource {
                         {
                             token = st.nextToken();
                             token = st.nextToken();
-
-                            String[] a = token.split("/");
 
                             firstLine = false;
                         }
@@ -115,15 +112,15 @@ public class TCMB implements IExchangeSource {
 
 		if(exchange.equals("EUR/TRY"))
 		{
-			result = "BUY : " + buy.get("EUR/TRY") + "\n" + "SELL : " + sell.get("EUR/TRY");
+			result = "BUY : " + buy.get("EUR/TRY") + "\n" + "SELL : " + sell.get("EUR/TRY") + "\n\nSource: " + name;
 		}
 		else if(exchange.equals("GBP/TRY"))
 		{
-			result = "BUY : " + buy.get("GBP/TRY") + "\n" + "SELL : " + sell.get("GBP/TRY");
+			result = "BUY : " + buy.get("GBP/TRY") + "\n" + "SELL : " + sell.get("GBP/TRY") + "\n\nSource: " + name;
 		}
 		else
 		{
-			result = "BUY : " + buy.get("USD/TRY") + "\n" + "SELL : " + sell.get("USD/TRY");
+			result = "BUY : " + buy.get("USD/TRY") + "\n" + "SELL : " + sell.get("USD/TRY") + "\n\nSource: " + name;
 		}
 		
 		ta.setText(result);

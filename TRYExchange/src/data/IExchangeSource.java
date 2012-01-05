@@ -2,7 +2,6 @@ package data;
 
 import javax.swing.JTextArea;
 
-import view.MainFrame;
 
 public interface IExchangeSource 
 {
