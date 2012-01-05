@@ -1,5 +1,7 @@
 package data;
 
+import javax.swing.JTextArea;
+
 import view.MainFrame;
 
 public interface IExchangeSource 
@@ -7,9 +9,8 @@ public interface IExchangeSource
 	
 	public void update();
 	
-	public void getData(String exchange);
+	public void getData(String exchange, JTextArea ta);
 	
-	public void setView(MainFrame f);
 
 	
 }

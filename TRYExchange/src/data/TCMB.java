@@ -7,6 +7,8 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.StringTokenizer;
 
+import javax.swing.JTextArea;
+
 import view.MainFrame;
 
 public class TCMB implements IExchangeSource {
@@ -15,14 +17,12 @@ public class TCMB implements IExchangeSource {
 	private HashMap<String, String> buy;
 	private HashMap<String, String> sell;
 	
-	private MainFrame f;
 	
 	public TCMB(String url)
 	{
 		this.url = url;
 		buy = new HashMap<String,String>();
 		sell = new HashMap<String,String>();
-		this.f = null;
 
 	}
 	
@@ -109,7 +109,7 @@ public class TCMB implements IExchangeSource {
 	
 	// this is called by the GUI when the user chooses a value from the
 	// combo box
-	public void getData(String exchange)
+	public void getData(String exchange, JTextArea ta)
 	{
 		String result;
 
@@ -126,12 +126,8 @@ public class TCMB implements IExchangeSource {
 			result = "BUY : " + buy.get("USD/TRY") + "\n" + "SELL : " + sell.get("USD/TRY");
 		}
 		
-		f.setTextArea(result);
-		
+		ta.setText(result);
 	}
 	
-	public void setView(MainFrame f)
-	{
-		this.f = f;
-	}
+
 }

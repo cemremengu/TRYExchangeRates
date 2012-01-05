@@ -11,7 +11,6 @@ import javax.swing.JPanel;
 import javax.swing.JTextArea;
 
 import data.IExchangeSource;
-import data.TCMB;
 
 public class MainFrame {
 
@@ -29,7 +28,6 @@ public class MainFrame {
     }
     public MainFrame(final IExchangeSource s) {
         //build gui
-    	s.setView(this);
 		s.update();
         final JComboBox comboBox = new JComboBox();
 
@@ -48,7 +46,7 @@ public class MainFrame {
 
             @Override
             public void actionPerformed(ActionEvent e) {
-                s.getData(comboBox.getSelectedItem().toString());
+                s.getData(comboBox.getSelectedItem().toString(), textArea);
             }
         });
 
@@ -62,12 +60,6 @@ public class MainFrame {
     }
 
 	
-	public void setTextArea(String text)
-	{
-		textArea.setText(text);
-	}
-	
-
 	
 	
 }
